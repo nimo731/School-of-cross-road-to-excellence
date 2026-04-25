@@ -1,0 +1,36 @@
+.programs-page .page-header {
+    padding: 6rem 0;
+}
+
+.programs-page .header-title {
+    color: var(--color-green);
+}
+
+.programs-page .header-subtitle.gold {
+    color: var(--color-gold);
+    font-weight: 600;
+}
+
+.programs-list {
+    padding: 8rem 0;
+}
+
+.programs-intro {
+    margin-bottom: 5rem;
+}
+
+.programs-cards {
+    gap: 3rem;
+}
+
+.region-info {
+    padding: 6rem 0;
+}
+
+@media (max-width: 992px) {
+    .programs-cards {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
