@@ -33,7 +33,7 @@ const Navbar = () => {
                             {link.title}
                         </Link>
                     ))}
-                    <Link to="/programs" className="btn btn-primary nav-cta" onClick={() => setIsOpen(false)}>
+                    <Link to="/enroll" className="btn btn-primary nav-cta" onClick={() => setIsOpen(false)}>
                         Enroll Now
                     </Link>
                 </div>

@@ -9,13 +9,15 @@ const Programs = () => {
             duration: '6 Weeks',
             priceKES: 'KSh40,000',
             priceUSD: '$397',
-            description: 'Build the mindset, presence, and discipline of a strong leader. Focuses on self-awareness, communication, decision-making, and leading with confidence in real-life situations. Students leave with a leadership identity and a practical action plan.'
+            sessions: ['Morning Session (9 AM - 12 PM)', 'Evening Session (6 PM - 9 PM)'],
+            description: 'Build the mindset, presence, and discipline of a strong leader. Focuses on self-awareness, communication, decision-making, and leading with confidence in real-life situations.'
         },
         {
             title: 'Professional Resume, Cover Letter & Interview Mastery',
             duration: '2 Weeks',
             priceKES: 'KSh20,000',
             priceUSD: '$197',
+            sessions: ['Morning Session (9 AM - 12 PM)', 'Evening Session (6 PM - 9 PM)'],
             description: 'Learn how to present yourself professionally on paper and in person. Covers resume writing, persuasive cover letters, and interview techniques to stand out and secure opportunities.'
         },
         {
@@ -23,14 +25,24 @@ const Programs = () => {
             duration: '4-Week Advanced Program',
             priceKES: 'KSh28,000',
             priceUSD: '$225',
-            description: 'Designed for experienced seniors ready to master advanced technology. Not a beginner’s class; it explores AI as a practical tool for everyday life, business, creativity, and communication in a collaborative environment.'
+            sessions: ['Afternoon Session (2 PM - 5 PM)'],
+            description: 'Designed for experienced seniors ready to master advanced technology. It explores AI as a practical tool for everyday life, business, creativity, and communication.'
         },
         {
             title: 'How to Start a Business',
             duration: '2 Weeks',
             priceKES: 'KSh30,000',
             priceUSD: '$250',
+            sessions: ['Evening Session (6 PM - 9 PM)'],
             description: 'Foundational steps to legally and practically start a business. Covers business structure, registration, and basic operations to move from idea to action.'
+        },
+        {
+            title: 'Boot Camp for Seniors',
+            duration: '4 Weeks',
+            priceKES: 'N/A',
+            priceUSD: '$225',
+            sessions: ['Morning Session (10 AM - 1 PM)'],
+            description: 'Bringing old stories to life through digital storytelling and AI, specifically for seniors aged 65+.'
         }
     ];
 

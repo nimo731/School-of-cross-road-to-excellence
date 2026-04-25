@@ -53,11 +53,38 @@
     flex-grow: 1;
 }
 
+.program-sessions {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--color-cream);
+    border-radius: 10px;
+}
+
+.sessions-title {
+    font-size: 0.75rem;
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.program-sessions ul {
+    list-style: none;
+    font-size: 0.85rem;
+}
+
+.program-sessions li::before {
+    content: "• ";
+    color: var(--color-green);
+}
+
 .program-pricing {
     display: flex;
     justify-content: space-between;
     padding-top: 1.5rem;
     border-top: 1px solid #eee;
+    margin-top: auto;
 }
 
 .price-item {
@@ -84,4 +111,8 @@
 
 .btn-full {
     width: 100%;
+}
+
+.text-center {
+    text-align: center;
 }
