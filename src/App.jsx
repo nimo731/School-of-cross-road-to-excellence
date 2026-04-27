@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import LogoHeader from './components/LogoHeader';
 import Home from './pages/Home';
 import About from './pages/About';
 import Programs from './pages/Programs';
@@ -39,7 +38,6 @@ function App() {
     return (
         <Router>
             <div className="app-container">
-                <LogoHeader />
                 <Navbar />
                 <main>
                     <AnimatedRoutes />
