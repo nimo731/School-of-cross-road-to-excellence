@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Eye, Compass, Stars, Crosshair, Flag, Zap, Award } from 'lucide-react';
+import { Eye, Compass, Stars, Crosshair, Flag, Zap, Award, Target } from 'lucide-react';
 import './About.css';
 
 const About = () => {
@@ -20,46 +20,28 @@ const About = () => {
 
     return (
         <div className="about-page">
-            {/* Grand Hero Section for About Us & Mission */}
-            <section className="relative-section grand-about-header">
+            {/* Grand Hero Section - About Us Alone */}
+            <section className="relative-section grand-about-header text-center">
                 <div className="container">
                     <motion.div
-                        className="glass-panel dark-glass"
-                        initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={staggerContainer}
+                        initial="hidden" animate="visible" variants={fadeUp}
                     >
-                        <div className="split-layout">
-                            {/* Combined About Content */}
-                            <motion.div variants={fadeUp} className="text-content">
-                                <h1 className="super-heading">About Us</h1>
-                                <p className="lead-text">
-                                    The School of the Crossroads to Excellence is a transformative online learning institution dedicated to guiding individuals at pivotal moments in their lives.
-                                </p>
-                                <p className="body-text">
-                                    We serve those who stand at a crossroads—ready to grow, ready to change, and ready to lead. Through practical instruction, structured programs, and empowering guidance, the school equips students with real-world skills in leadership, communication, technology, and personal development.
-                                </p>
-                                <p className="body-text">
-                                    Our approach blends clarity with confidence, discipline with purpose, and knowledge with action.
-                                </p>
-                            </motion.div>
-
-                            {/* Mission */}
-                            <motion.div variants={fadeUp} className="text-content mission-block">
-                                <h2 className="super-subheading">Our Mission</h2>
-                                <p className="body-text">
-                                    We believe that standing at a crossroads is not a point of confusion, but a point of opportunity. Our goal is to provide the practical instruction and structured programs necessary to turn that opportunity into achievement.
-                                </p>
-                                <div className="mission-highlight">
-                                    <p>At the heart of our mission is a simple truth:</p>
-                                    <strong>No longer dream it. Wake up and achieve it.</strong>
-                                </div>
-                            </motion.div>
-                        </div>
+                        <h1 className="super-heading">About Us</h1>
+                        <p className="hero-body-text">
+                            The School of the Crossroads to Excellence is a transformative online learning institution dedicated to guiding individuals at pivotal moments in their lives.
+                        </p>
+                        <p className="hero-body-text">
+                            We serve those who stand at a crossroads—ready to grow, ready to change, and ready to lead. Through practical instruction, structured programs, and empowering guidance, the school equips students with real-world skills in leadership, communication, technology, and personal development.
+                        </p>
+                        <p className="hero-body-text" style={{ marginBottom: 0 }}>
+                            Our approach blends clarity with confidence, discipline with purpose, and knowledge with action.
+                        </p>
                     </motion.div>
                 </div>
             </section>
 
-            {/* Vision & Core Values - Centered + Horizontal Grid */}
-            <section className="relative-section bg-cream" style={{ zIndex: 2 }}>
+            {/* Mission & Vision Side by Side template */}
+            <section className="relative-section bg-cream" style={{ zIndex: 2, padding: '7rem 0 3rem 0' }}>
                 <div className="blob-container">
                     <div className="blob blob-green"></div>
                     <div className="blob blob-gold"></div>
@@ -67,24 +49,47 @@ const About = () => {
 
                 <div className="container">
                     <motion.div
-                        className="vision-centered-container"
+                        className="split-layout mission-vision-split"
                         initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={staggerContainer}
                     >
-                        {/* Vision Card - Centered vertically and constrained */}
-                        <motion.div className="modern-card vision-card-centered" variants={fadeUp}>
+                        {/* Mission Card */}
+                        <motion.div className="modern-card box-mission" variants={fadeUp}>
                             <div className="icon-wrapper">
-                                <Eye size={36} strokeWidth={1.5} />
+                                <Target size={32} strokeWidth={1.5} color="#d9534f" />
                             </div>
-                            <h3>Our Vision</h3>
-                            <p className="body-text text-center">
-                                To raise a generation of confident, purpose-driven individuals equipped to lead, grow, and create meaningful impact in every area of life.
+                            <h3>Our Mission</h3>
+                            <p className="body-text">
+                                We believe that standing at a crossroads is not a point of confusion, but a point of opportunity. Our goal is to provide the practical instruction and structured programs necessary to turn that opportunity into achievement.
+                            </p>
+                            <p className="body-text mt-3" style={{ color: "var(--color-green)", fontStyle: "italic", fontWeight: 600 }}>
+                                At the heart of our mission is a simple truth:<br />
+                                <span style={{ color: "var(--color-text)", fontSize: "1.2rem", fontStyle: "normal" }}>No longer dream it. Wake up and achieve it.</span>
                             </p>
                         </motion.div>
 
-                        {/* Horizontal Core Values */}
+                        {/* Vision Card */}
+                        <motion.div className="modern-card box-vision" variants={fadeUp}>
+                            <div className="icon-wrapper">
+                                <Eye size={32} strokeWidth={1.5} color="#1b4b6b" />
+                            </div>
+                            <h3>Our Vision</h3>
+                            <p className="body-text">
+                                To raise a generation of confident, purpose-driven individuals equipped to lead, grow, and create meaningful impact in every area of life.
+                            </p>
+                        </motion.div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Horizontal Core Values */}
+            <section className="relative-section bg-cream" style={{ zIndex: 2, padding: '3rem 0 7rem 0' }}>
+                <div className="container">
+                    <motion.div
+                        initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={staggerContainer}
+                    >
                         <motion.div variants={fadeUp} className="values-header-wrapper">
                             <h2 className="heading-gradient text-center values-heading">Core Values</h2>
-                            <p className="text-center body-text">The principles that guide our journey toward excellence.</p>
+                            <p className="text-center body-text" style={{ maxWidth: '600px', margin: '0 auto' }}>The principles that guide our journey toward excellence.</p>
                         </motion.div>
 
                         <motion.div className="values-grid-horizontal" variants={staggerContainer}>

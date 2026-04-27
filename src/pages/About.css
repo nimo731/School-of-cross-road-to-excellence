@@ -1,4 +1,4 @@
-/* About.css - Premium Layout Redesign */
+/* About.css - Final Exact Formatting */
 
 .about-page {
     background-color: var(--color-background, #fafbfc);
@@ -15,58 +15,31 @@
 
 /* Grand Hero Background styling */
 .grand-about-header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(4, 30, 15, 0.8)), url('/images/elegant-bg.png');
+    background-image: linear-gradient(rgba(4, 30, 15, 0.8), rgba(4, 30, 15, 0.95)), url('/images/elegant-bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding: 10rem 0 8rem 0;
-    color: white;
-}
-
-.dark-glass {
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    padding: 12rem 0;
     color: white;
 }
 
 .super-heading {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     font-weight: 800;
     margin-bottom: 2rem;
-    color: white;
+    color: var(--color-white);
     letter-spacing: -1px;
 }
 
-.super-subheading {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: white;
+.hero-body-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 900px;
+    margin: 0 auto 1.5rem auto;
 }
 
-.dark-glass .lead-text {
-    color: rgba(255, 255, 255, 0.95);
-}
-
-.dark-glass .body-text {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.dark-glass .mission-highlight {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.dark-glass .mission-highlight p {
-    color: var(--color-gold);
-}
-
-.dark-glass .mission-highlight strong {
-    color: white;
-}
-
-/* Decorative Blobs inside Cream sections */
+/* Decorative Blobs */
 .blob-container {
     position: absolute;
     top: 0;
@@ -114,15 +87,6 @@
 }
 
 /* Layouts */
-.glass-panel {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 30px;
-    padding: 5rem 4rem;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.04);
-}
-
 .split-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -146,14 +110,6 @@
     -webkit-text-fill-color: transparent;
 }
 
-.lead-text {
-    font-size: 1.25rem;
-    color: var(--color-text);
-    font-weight: 500;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
 .text-center {
     text-align: center;
 }
@@ -165,67 +121,73 @@
     margin-bottom: 1.2rem;
 }
 
-.mission-highlight {
-    background: rgba(212, 175, 55, 0.08);
-    padding: 2.5rem;
-    border-radius: 20px;
-    border-left: 4px solid var(--color-gold);
-    margin-top: 2.5rem;
+.mt-3 {
+    margin-top: 1.5rem;
 }
 
-.mission-highlight p {
-    font-size: 1.2rem;
-    color: var(--color-green);
-    font-style: italic;
-    margin: 0 0 0.5rem 0;
+.fw-bold {
+    font-weight: 700;
 }
 
-.mission-highlight strong {
-    display: block;
-    font-size: 1.6rem;
-    color: var(--color-text);
-    font-style: normal;
-}
-
-/* VISION CENTERING */
-.vision-card-centered {
-    max-width: 650px;
-    margin: 0 auto 5rem auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Mission & Vision Side by Side template */
+.modern-card {
     background: var(--color-white);
-    border-radius: 24px;
-    padding: 3.5rem;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    padding: 4rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-bottom: 5px solid transparent;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
-    z-index: 10;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.vision-card-centered h3 {
+.modern-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.box-mission {
+    border-bottom-color: #d9534f !important;
+    /* Red border */
+}
+
+.box-vision {
+    border-bottom-color: #1b4b6b !important;
+    /* Blue border */
+}
+
+.box-mission .icon-wrapper {
+    background: rgba(217, 83, 79, 0.1);
+}
+
+.box-vision .icon-wrapper {
+    background: rgba(27, 75, 107, 0.1);
+}
+
+.modern-card h3 {
     font-size: 2.2rem;
     color: var(--color-text);
     margin-bottom: 1.5rem;
     font-weight: 800;
 }
 
-.vision-card-centered .body-text {
-    text-align: center;
-    font-size: 1.2rem;
-}
-
 .icon-wrapper {
-    width: 72px;
-    height: 72px;
-    border-radius: 18px;
-    background: rgba(30, 90, 50, 0.06);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
-    color: var(--color-green);
+    transition: transform 0.4s ease;
 }
+
+.modern-card:hover .icon-wrapper {
+    transform: scale(1.1) rotate(10deg);
+}
+
 
 /* HORIZONTAL CORE VALUES */
 .values-header-wrapper {
@@ -349,7 +311,6 @@
     height: auto;
     object-fit: cover;
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
-    /* No border or simple thin border */
 }
 
 .founder-caption {
@@ -416,11 +377,7 @@
 @media (max-width: 992px) {
     .split-layout {
         grid-template-columns: 1fr;
-        gap: 4rem;
-    }
-
-    .glass-panel {
-        padding: 3rem 2rem;
+        gap: 3rem;
     }
 
     .founder-template-layout {
@@ -435,13 +392,5 @@
 
     .template-heading {
         font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 500px) {
-    .founder-badge {
-        left: 0;
-        bottom: 20px;
-        padding: 1rem;
     }
 }
