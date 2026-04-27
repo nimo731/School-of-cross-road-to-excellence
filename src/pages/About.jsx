@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Eye, Diamond, Crosshair, Zap, Compass, Flag, Award, Stars } from 'lucide-react';
+import { Eye, Compass, Stars, Crosshair, Flag, Zap, Award } from 'lucide-react';
 import './About.css';
 
 const About = () => {
@@ -20,31 +20,17 @@ const About = () => {
 
     return (
         <div className="about-page">
-            {/* Page Header */}
-            <section className="page-header bg-elegant">
-                <div className="container text-center">
-                    <motion.h1 className="header-title" initial="hidden" animate="visible" variants={fadeUp}>About Us</motion.h1>
-                    <motion.p className="header-subtitle" initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}>
-                        Empowering individuals at life's pivotal moments.
-                    </motion.p>
-                </div>
-            </section>
-
-            {/* Who We Are & Mission - Layered Glassmorphism */}
-            <section className="relative-section">
-                <div className="blob-container">
-                    <div className="blob blob-green"></div>
-                    <div className="blob blob-gold"></div>
-                </div>
-
+            {/* Grand Hero Section for About Us & Mission */}
+            <section className="relative-section grand-about-header">
                 <div className="container">
                     <motion.div
-                        className="glass-panel"
+                        className="glass-panel dark-glass"
                         initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={staggerContainer}
                     >
                         <div className="split-layout">
+                            {/* Combined About Content */}
                             <motion.div variants={fadeUp} className="text-content">
-                                <h2 className="heading-gradient">Who We Are</h2>
+                                <h1 className="super-heading">About Us</h1>
                                 <p className="lead-text">
                                     The School of the Crossroads to Excellence is a transformative online learning institution dedicated to guiding individuals at pivotal moments in their lives.
                                 </p>
@@ -56,8 +42,9 @@ const About = () => {
                                 </p>
                             </motion.div>
 
+                            {/* Mission */}
                             <motion.div variants={fadeUp} className="text-content mission-block">
-                                <h2 className="heading-gradient">Our Mission</h2>
+                                <h2 className="super-subheading">Our Mission</h2>
                                 <p className="body-text">
                                     We believe that standing at a crossroads is not a point of confusion, but a point of opportunity. Our goal is to provide the practical instruction and structured programs necessary to turn that opportunity into achievement.
                                 </p>
@@ -71,67 +58,61 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Vision & Core Values - Modern Cards */}
+            {/* Vision & Core Values - Centered + Horizontal Grid */}
             <section className="relative-section bg-cream" style={{ zIndex: 2 }}>
+                <div className="blob-container">
+                    <div className="blob blob-green"></div>
+                    <div className="blob blob-gold"></div>
+                </div>
+
                 <div className="container">
                     <motion.div
-                        className="vision-values-grid"
+                        className="vision-centered-container"
                         initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={staggerContainer}
                     >
-                        {/* Vision Card */}
-                        <motion.div className="modern-card" variants={fadeUp}>
+                        {/* Vision Card - Centered vertically and constrained */}
+                        <motion.div className="modern-card vision-card-centered" variants={fadeUp}>
                             <div className="icon-wrapper">
-                                <Eye size={32} strokeWidth={1.5} />
+                                <Eye size={36} strokeWidth={1.5} />
                             </div>
                             <h3>Our Vision</h3>
-                            <p className="body-text">
+                            <p className="body-text text-center">
                                 To raise a generation of confident, purpose-driven individuals equipped to lead, grow, and create meaningful impact in every area of life.
                             </p>
                         </motion.div>
 
-                        {/* Core Values Card */}
-                        <motion.div className="modern-card" variants={fadeUp}>
-                            <div className="icon-wrapper">
-                                <Diamond size={32} strokeWidth={1.5} />
-                            </div>
-                            <h3>Core Values</h3>
-                            <ul className="values-list">
-                                <li className="value-item">
-                                    <div className="value-icon"><Compass size={24} /></div>
-                                    <div className="value-content">
-                                        <strong>Clarity</strong>
-                                        <span>Helping individuals gain direction and understanding in their journey.</span>
-                                    </div>
-                                </li>
-                                <li className="value-item">
-                                    <div className="value-icon"><Stars size={24} /></div>
-                                    <div className="value-content">
-                                        <strong>Confidence</strong>
-                                        <span>Building self-belief to take bold and meaningful steps.</span>
-                                    </div>
-                                </li>
-                                <li className="value-item">
-                                    <div className="value-icon"><Crosshair size={24} /></div>
-                                    <div className="value-content">
-                                        <strong>Discipline</strong>
-                                        <span>Encouraging consistency and commitment to growth.</span>
-                                    </div>
-                                </li>
-                                <li className="value-item">
-                                    <div className="value-icon"><Flag size={24} /></div>
-                                    <div className="value-content">
-                                        <strong>Purpose</strong>
-                                        <span>Guiding actions that align with meaningful goals.</span>
-                                    </div>
-                                </li>
-                                <li className="value-item">
-                                    <div className="value-icon"><Zap size={24} /></div>
-                                    <div className="value-content">
-                                        <strong>Action</strong>
-                                        <span>Turning knowledge into real-life results.</span>
-                                    </div>
-                                </li>
-                            </ul>
+                        {/* Horizontal Core Values */}
+                        <motion.div variants={fadeUp} className="values-header-wrapper">
+                            <h2 className="heading-gradient text-center values-heading">Core Values</h2>
+                            <p className="text-center body-text">The principles that guide our journey toward excellence.</p>
+                        </motion.div>
+
+                        <motion.div className="values-grid-horizontal" variants={staggerContainer}>
+                            <motion.div className="value-mini-card" variants={fadeUp}>
+                                <Compass size={36} className="value-icon-large" />
+                                <strong>Clarity</strong>
+                                <p>Helping gain direction and understanding in the journey.</p>
+                            </motion.div>
+                            <motion.div className="value-mini-card" variants={fadeUp}>
+                                <Stars size={36} className="value-icon-large" />
+                                <strong>Confidence</strong>
+                                <p>Building self-belief to take bold and meaningful steps.</p>
+                            </motion.div>
+                            <motion.div className="value-mini-card" variants={fadeUp}>
+                                <Crosshair size={36} className="value-icon-large" />
+                                <strong>Discipline</strong>
+                                <p>Encouraging consistency and commitment to growth.</p>
+                            </motion.div>
+                            <motion.div className="value-mini-card" variants={fadeUp}>
+                                <Flag size={36} className="value-icon-large" />
+                                <strong>Purpose</strong>
+                                <p>Guiding actions that align with meaningful goals.</p>
+                            </motion.div>
+                            <motion.div className="value-mini-card" variants={fadeUp}>
+                                <Zap size={36} className="value-icon-large" />
+                                <strong>Action</strong>
+                                <p>Turning knowledge into real-life results.</p>
+                            </motion.div>
                         </motion.div>
                     </motion.div>
                 </div>

@@ -1,11 +1,72 @@
-/* About.css - Premium SaaS Redesign */
+/* About.css - Premium Layout Redesign */
+
 .about-page {
     background-color: var(--color-background, #fafbfc);
     color: var(--color-text);
     overflow-x: hidden;
 }
 
-/* Decorative Background Blobs */
+/* Base section */
+.relative-section {
+    position: relative;
+    padding: 7rem 0;
+    z-index: 1;
+}
+
+/* Grand Hero Background styling */
+.grand-about-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(4, 30, 15, 0.8)), url('/images/elegant-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 10rem 0 8rem 0;
+    color: white;
+}
+
+.dark-glass {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: white;
+}
+
+.super-heading {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: white;
+    letter-spacing: -1px;
+}
+
+.super-subheading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.dark-glass .lead-text {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.dark-glass .body-text {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-glass .mission-highlight {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-glass .mission-highlight p {
+    color: var(--color-gold);
+}
+
+.dark-glass .mission-highlight strong {
+    color: white;
+}
+
+/* Decorative Blobs inside Cream sections */
 .blob-container {
     position: absolute;
     top: 0;
@@ -21,7 +82,7 @@
     position: absolute;
     border-radius: 50%;
     filter: blur(100px);
-    opacity: 0.4;
+    opacity: 0.3;
     animation: float 12s infinite ease-in-out alternate;
 }
 
@@ -52,25 +113,16 @@
     }
 }
 
-/* Base section */
-.relative-section {
-    position: relative;
-    padding: 7rem 0;
-    z-index: 1;
-}
-
-/* Glassmorphism Panel */
+/* Layouts */
 .glass-panel {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 30px;
     padding: 5rem 4rem;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.04);
 }
 
-/* Layouts */
 .split-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -81,7 +133,7 @@
     align-items: center;
 }
 
-/* Typography & Hierarchy */
+/* Typography */
 .heading-gradient {
     font-size: 2.8rem;
     font-weight: 800;
@@ -101,6 +153,10 @@
     margin-bottom: 1.5rem;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .body-text {
     font-size: 1.125rem;
     line-height: 1.7;
@@ -108,10 +164,8 @@
     margin-bottom: 1.2rem;
 }
 
-/* Highlights */
 .mission-highlight {
     background: rgba(212, 175, 55, 0.08);
-    /* soft gold tint */
     padding: 2.5rem;
     border-radius: 20px;
     border-left: 4px solid var(--color-gold);
@@ -132,29 +186,81 @@
     font-style: normal;
 }
 
-/* Vision & Values grid */
-.vision-values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 3rem;
-}
-
-.modern-card {
+/* VISION CENTERING */
+.vision-card-centered {
+    max-width: 650px;
+    margin: 0 auto 5rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: var(--color-white);
     border-radius: 24px;
     padding: 3.5rem;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
     border: 1px solid rgba(0, 0, 0, 0.04);
+    position: relative;
+    z-index: 10;
+}
+
+.vision-card-centered h3 {
+    font-size: 2.2rem;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.vision-card-centered .body-text {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.icon-wrapper {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    background: rgba(30, 90, 50, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: var(--color-green);
+}
+
+/* HORIZONTAL CORE VALUES */
+.values-header-wrapper {
+    margin-bottom: 3.5rem;
+}
+
+.values-heading {
+    margin-bottom: 0.5rem;
+}
+
+.values-grid-horizontal {
+    display: grid;
+    /* This creates horizontal mini boxes that wrap perfectly */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.value-mini-card {
+    background: var(--color-white);
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.03);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    backdrop-filter: blur(10px);
 }
 
-.modern-card::before {
+.value-mini-card::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
     height: 4px;
@@ -163,80 +269,38 @@
     transition: opacity 0.4s ease;
 }
 
-.modern-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+.value-mini-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
-.modern-card:hover::before {
+.value-mini-card:hover::after {
     opacity: 1;
 }
 
-/* Icons */
-.icon-wrapper {
-    width: 64px;
-    height: 64px;
-    border-radius: 18px;
-    background: rgba(30, 90, 50, 0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
-    color: var(--color-green);
-    transition: all 0.4s ease;
-}
-
-.modern-card:hover .icon-wrapper {
-    background: var(--color-green);
-    color: var(--color-white);
-    transform: scale(1.05) rotate(5deg);
-}
-
-.modern-card h3 {
-    font-size: 2rem;
-    color: var(--color-text);
+.value-icon-large {
+    color: var(--color-gold);
     margin-bottom: 1.5rem;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.value-mini-card:hover .value-icon-large {
+    transform: scale(1.2) rotate(5deg);
+    color: var(--color-green);
+}
+
+.value-mini-card strong {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--color-text);
+    margin-bottom: 0.8rem;
     font-weight: 700;
 }
 
-/* Core Values List */
-.values-list {
-    list-style: none;
-    padding: 0;
-}
-
-.value-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    margin-bottom: 1.8rem;
-    padding-bottom: 1.8rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-.value-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.value-icon {
-    flex-shrink: 0;
-    margin-top: 4px;
-    color: var(--color-gold);
-}
-
-.value-content strong {
-    display: block;
-    font-size: 1.25rem;
-    color: var(--color-text);
-    margin-bottom: 0.4rem;
-}
-
-.value-content span {
+.value-mini-card p {
+    font-size: 1rem;
     color: #666;
-    font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /* Founder Inspiration */
@@ -348,10 +412,6 @@
 
     .founder-card {
         padding: 3rem 2rem;
-    }
-
-    .vision-values-grid {
-        grid-template-columns: 1fr;
     }
 }
 
