@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import { allPrograms } from '../data/programsData';
 import './ProgramDetails.css';
 
 const ProgramDetails = () => {
     const { id } = useParams();
     const navigate = useNavigate();
+    const location = useLocation();
     const [program, setProgram] = useState(null);
-    const [activeRegion, setActiveRegion] = useState('africa');
+    const [activeRegion, setActiveRegion] = useState(location.state?.region || 'africa');
 
     useEffect(() => {
         const found = allPrograms.find(p => p.id === id);

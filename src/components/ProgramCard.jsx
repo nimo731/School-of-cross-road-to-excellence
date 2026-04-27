@@ -8,12 +8,12 @@ const ProgramCard = ({ id, title, duration, price, image, activeRegion = 'africa
 
     return (
         <div className="program-card clever-style">
-            <div className="card-image-wrapper" onClick={() => navigate(`/program/${id}`)}>
+            <div className="card-image-wrapper" onClick={() => navigate(`/program/${id}`, { state: { region: activeRegion } })}>
                 <img src={image || '/images/placeholder.svg'} alt={`${title} Flyer`} className="card-image" />
             </div>
 
             <div className="card-body">
-                <h3 className="card-title" onClick={() => navigate(`/program/${id}`)}>
+                <h3 className="card-title" onClick={() => navigate(`/program/${id}`, { state: { region: activeRegion } })}>
                     {title}
                 </h3>
 
