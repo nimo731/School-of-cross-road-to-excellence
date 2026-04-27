@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Mail, Phone } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
@@ -27,9 +28,17 @@ const Footer = () => {
 
                 <div className="footer-contact">
                     <h4>Contact Us</h4>
-                    <p>Contact Person: Madam Wanjiru</p>
-                    <p>Email: borntowrite02@gmail.com</p>
-                    <p>Phone: 0114915609</p>
+                    <p style={{ marginBottom: '1rem' }}>Contact Person: Madam Wanjiru</p>
+                    <div className="footer-contact-items">
+                        <a href="mailto:borntowrite02@gmail.com" className="footer-contact-link">
+                            <Mail size={18} />
+                            borntowrite02@gmail.com
+                        </a>
+                        <a href="tel:0114915609" className="footer-contact-link">
+                            <Phone size={18} />
+                            0114915609
+                        </a>
+                    </div>
                 </div>
             </div>
             <div className="footer-bottom">
