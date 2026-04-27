@@ -128,3 +128,21 @@ ul {
     padding: 0 1rem;
   }
 }
+
+/* Shiny Background Utility */
+.bg-shiny {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 30, 15, 0.8)), url('/images/shiny-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--color-white);
+}
+
+.bg-shiny .section-title,
+.bg-shiny .section-desc,
+.bg-shiny .cta-title,
+.bg-shiny .cta-desc,
+.bg-shiny .header-title,
+.bg-shiny .header-subtitle {
+  color: var(--color-white);
+}

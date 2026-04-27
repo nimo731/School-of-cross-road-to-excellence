@@ -31,12 +31,19 @@ const Home = () => {
             </section>
 
             {/* About Teaser */}
-            <section className="about-teaser bg-elegant">
+            <section className="about-teaser" style={{ padding: '6rem 0 3rem 0' }}>
                 <div className="container text-center">
                     <h2 className="section-title">Why Crossroads?</h2>
-                    <p className="section-desc">
-                        We blend clarity with confidence, discipline with purpose, and knowledge with action. Our focus areas:
+                    <p className="section-desc" style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--color-text)' }}>
+                        We blend clarity with confidence, discipline with purpose, and knowledge with action.
+                        Standing at a crossroads is not a point of confusion, but a point of opportunity.
                     </p>
+                </div>
+            </section>
+
+            {/* Pillars */}
+            <section className="pillars-section bg-elegant" style={{ padding: '4rem 0 6rem 0' }}>
+                <div className="container text-center">
                     <div className="grid grid-3 teaser-grid">
                         <div className="teaser-item">
                             <div className="teaser-icon">⚖️</div>

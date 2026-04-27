@@ -282,8 +282,9 @@
     right: 0;
     transform: translateY(-50%);
     height: 75%;
-    background-color: #163628;
-    /* Deep satisfying green to match template */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url('/images/shiny-bg.png');
+    background-size: cover;
+    background-position: center;
     z-index: 1;
 }
 

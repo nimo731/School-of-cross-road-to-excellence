@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PhoneInput from 'react-phone-number-input';
+import { User, Phone, Mail } from 'lucide-react';
 import 'react-phone-number-input/style.css';
 import './Contact.css';
 
@@ -9,16 +10,16 @@ const Contact = () => {
     return (
         <div className="contact-page">
             {/* Page Header */}
-            <section className="page-header bg-elegant">
+            <section className="page-header bg-shiny">
                 <div className="container text-center">
                     <h1 className="header-title">Contact Us</h1>
-                    <p className="header-subtitle">We're here to guide you. Reach out today.</p>
+                    <p className="header-subtitle gold">We're here to guide you. Reach out today.</p>
                 </div>
             </section>
 
             {/* Contact Content */}
             <section className="contact-content">
-                <div className="container grid grid-2">
+                <div className="container contact-split">
                     <div className="contact-info">
                         <h2 className="section-title">Get In Touch</h2>
                         <p className="contact-desc">
@@ -27,24 +28,30 @@ const Contact = () => {
 
                         <div className="contact-details">
                             <div className="detail-item">
-                                <span className="detail-icon">👤</span>
+                                <span className="detail-icon">
+                                    <User size={24} />
+                                </span>
                                 <div>
                                     <h4>Contact Person</h4>
                                     <p>Madam Wanjiru</p>
                                 </div>
                             </div>
                             <div className="detail-item">
-                                <span className="detail-icon">📧</span>
+                                <span className="detail-icon">
+                                    <Mail size={24} />
+                                </span>
                                 <div>
                                     <h4>Email Address</h4>
-                                    <p>borntowrite02@gmail.com</p>
+                                    <a href="mailto:borntowrite02@gmail.com" className="contact-link">borntowrite02@gmail.com</a>
                                 </div>
                             </div>
                             <div className="detail-item">
-                                <span className="detail-icon">📞</span>
+                                <span className="detail-icon">
+                                    <Phone size={24} />
+                                </span>
                                 <div>
                                     <h4>Phone Number</h4>
-                                    <p>0114915609</p>
+                                    <a href="tel:0114915609" className="contact-link">0114915609</a>
                                 </div>
                             </div>
                         </div>
