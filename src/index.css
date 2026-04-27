@@ -131,7 +131,7 @@ ul {
 
 /* Shiny Background Utility */
 .bg-shiny {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 30, 15, 0.8)), url('/images/shiny-bg.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 30, 15, 0.85)), url('/images/shiny-bg.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
