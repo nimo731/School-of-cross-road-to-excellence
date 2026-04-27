@@ -85,14 +85,13 @@
 .card-price {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #ff3366;
-    /* Stand-out color for price */
+    color: var(--color-gold);
 }
 
 .btn-apply {
     padding: 0.5rem 1.5rem;
     border-radius: 4px;
-    background-color: #ff3366;
+    background-color: var(--color-gold);
     color: white;
     border: none;
     font-weight: 600;
@@ -101,6 +100,7 @@
 }
 
 .btn-apply:hover {
-    background-color: #e62e5c;
+    background-color: #c99339;
+    /* slightly darker gold */
     color: white;
 }
