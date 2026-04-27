@@ -5,8 +5,8 @@ const About = () => {
     return (
         <div className="about-page">
             {/* Page Header */}
-            <section className="page-header bg-green">
-                <div className="container">
+            <section className="page-header bg-elegant">
+                <div className="container text-center">
                     <h1 className="header-title">About Us</h1>
                     <p className="header-subtitle">Empowering individuals at life's pivotal moments.</p>
                 </div>

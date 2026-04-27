@@ -9,7 +9,7 @@ const Contact = () => {
     return (
         <div className="contact-page">
             {/* Page Header */}
-            <section className="page-header bg-green">
+            <section className="page-header bg-elegant">
                 <div className="container text-center">
                     <h1 className="header-title">Contact Us</h1>
                     <p className="header-subtitle">We're here to guide you. Reach out today.</p>

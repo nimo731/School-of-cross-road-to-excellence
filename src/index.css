@@ -25,7 +25,12 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   color: var(--color-dark);
@@ -47,10 +52,30 @@ ul {
   padding: 0 2rem;
 }
 
-section {
-  padding: 5rem 0;
+.text-center {
+  text-align: center;
 }
 
+/* Elegant Background Utility */
+.bg-elegant {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(4, 30, 15, 0.75)), url('/images/elegant-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Elegant parallax feel */
+  color: var(--color-white);
+}
+
+.bg-elegant .section-title,
+.bg-elegant .section-desc,
+.bg-elegant .cta-title,
+.bg-elegant .cta-desc,
+.bg-elegant .header-title,
+.bg-elegant .header-subtitle {
+  color: var(--color-white);
+}
+
+/* Buttons */
 .btn {
   display: inline-block;
   padding: 0.8rem 2rem;
@@ -98,7 +123,7 @@ section {
   section {
     padding: 3rem 0;
   }
-  
+
   .container {
     padding: 0 1rem;
   }

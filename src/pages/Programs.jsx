@@ -10,7 +10,7 @@ const Programs = () => {
     return (
         <div className="programs-page">
             {/* Page Header */}
-            <section className="page-header bg-cream">
+            <section className="page-header bg-elegant">
                 <div className="container text-center">
                     <h1 className="header-title">Our Programs</h1>
                     <p className="header-subtitle gold">Step into your potential with our immersive bootcamps.</p>

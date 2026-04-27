@@ -31,7 +31,7 @@ const Home = () => {
             </section>
 
             {/* About Teaser */}
-            <section className="about-teaser bg-cream">
+            <section className="about-teaser bg-elegant">
                 <div className="container text-center">
                     <h2 className="section-title">Why Crossroads?</h2>
                     <p className="section-desc">
@@ -73,7 +73,7 @@ const Home = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="cta-section bg-green">
+            <section className="cta-section bg-elegant">
                 <div className="container text-center">
                     <h2 className="cta-title">Ready to Transform Your Life?</h2>
                     <p className="cta-desc">Enroll in our upcoming cohort and start your journey towards excellence today.</p>
