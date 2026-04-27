@@ -32,7 +32,12 @@ const ProgramDetails = () => {
 
     return (
         <div className="program-details-page">
-            <section className="details-header bg-green">
+            <section
+                className="details-header elegant-header"
+                style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)), url(${program.image})`
+                }}
+            >
                 <div className="container text-center">
                     <h1 className="header-title">{program.title}</h1>
                     <p className="header-subtitle">Dive deeper into what this bootcamp offers.</p>
