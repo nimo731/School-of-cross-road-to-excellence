@@ -118,48 +118,42 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Founder's Inspiration */}
-            <section className="relative-section founder-inspiration">
+            {/* Founder's Inspiration - Match Template */}
+            <section className="relative-section founder-template-section">
+                {/* The full width colored band */}
+                <div className="founder-green-band"></div>
+
                 <div className="container">
-                    <motion.div
-                        className="founder-card"
-                        initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={staggerContainer}
-                    >
-                        <div className="split-layout align-center">
-                            <motion.div className="founder-text" variants={fadeUp}>
-                                <h2 className="heading-gradient">Founder's Inspiration</h2>
-                                <p className="body-text">
-                                    The School of the Crossroads to Excellence was born from a deep understanding that many people reach moments in life where they feel uncertain, stuck, or unsure of their next step.
-                                </p>
-                                <p className="body-text">
-                                    Instead of seeing these moments as setbacks, the founder recognized them as powerful turning points—opportunities for growth, transformation, and leadership.
-                                </p>
-                                <p className="body-text">
-                                    Driven by a passion for guiding others, the vision was to create a platform that not only teaches but equips individuals with practical tools in leadership, communication, technology, and personal development.
-                                </p>
-                                <div className="founder-quote">
-                                    "This institution exists to remind every individual of one simple truth:"<br />
-                                    <strong>No longer dream it. Wake up and achieve it.</strong>
+                    <div className="founder-template-layout">
+                        {/* Left Side: Overlapping Image */}
+                        <motion.div className="founder-image-side" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                            <div className="founder-overlap-wrapper">
+                                <img src="/images/founder.png" alt="Lavirnia Mordella Mayo - Founder" className="founder-overlap-image" />
+                                <div className="founder-caption text-center">
+                                    <span className="caption-role">Founder</span>
+                                    <h4 className="caption-name">Lavirnia Mordella Mayo</h4>
                                 </div>
-                            </motion.div>
+                            </div>
+                        </motion.div>
 
-                            <motion.div className="founder-image-wrapper" variants={fadeUp}>
-                                <div className="founder-frame"></div>
-                                <img src="/images/founder.png" alt="Founder of School of the Crossroads" className="founder-image" />
-
-                                {/* Floating Premium Badge */}
-                                <div className="founder-badge">
-                                    <div className="badge-icon">
-                                        <Award size={24} />
-                                    </div>
-                                    <div className="badge-text">
-                                        <strong>Excellence</strong>
-                                        <span>Guiding your journey</span>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </div>
-                    </motion.div>
+                        {/* Right Side: Text Content */}
+                        <motion.div className="founder-content-side" initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                            <h2 className="template-heading">Founder's Inspiration</h2>
+                            <p className="template-text">
+                                The School of the Crossroads to Excellence was born from a deep understanding that many people reach moments in life where they feel uncertain, stuck, or unsure of their next step.
+                            </p>
+                            <p className="template-text">
+                                Instead of seeing these moments as setbacks, the founder recognized them as powerful turning points—opportunities for growth, transformation, and leadership.
+                            </p>
+                            <p className="template-text">
+                                Driven by a passion for guiding others, the vision was to create a platform that not only teaches but equips individuals with practical tools in leadership, communication, technology, and personal development.
+                            </p>
+                            <div className="template-quote">
+                                "This institution exists to remind every individual of one simple truth:"<br />
+                                <strong>No longer dream it. Wake up and achieve it.</strong>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
         </div>

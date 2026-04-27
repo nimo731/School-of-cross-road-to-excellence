@@ -142,6 +142,7 @@
     margin-bottom: 1.8rem;
     background: linear-gradient(135deg, var(--color-green) 0%, #178351 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -303,100 +304,112 @@
     line-height: 1.5;
 }
 
-/* Founder Inspiration */
-.founder-inspiration {
-    background: #fff;
-}
-
-.founder-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 36px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
-    padding: 5rem;
-    border: 1px solid rgba(0, 0, 0, 0.02);
-}
-
-.founder-quote {
-    font-size: 1.3rem;
-    color: var(--color-text);
-    margin-top: 3rem;
-    font-style: italic;
-    border-left: 5px solid var(--color-gold);
-    padding-left: 2rem;
-    line-height: 1.6;
-}
-
-.founder-quote strong {
-    display: block;
-    margin-top: 0.5rem;
-    color: var(--color-green);
-    font-size: 1.4rem;
-    font-style: normal;
-}
-
-.founder-image-wrapper {
+/* Founder Inspiration Template */
+.founder-template-section {
     position: relative;
-    padding: 1rem;
+    padding: 10rem 0;
+    /* Ensures there is space for the image to overflow the green band */
+    background-color: var(--color-background, #fafbfc);
+    overflow: hidden;
 }
 
-.founder-badge {
+.founder-green-band {
     position: absolute;
-    bottom: 40px;
-    left: -30px;
-    background: var(--color-white);
-    padding: 1.25rem 2rem;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    z-index: 10;
-    animation: float 6s infinite ease-in-out alternate;
-}
-
-.badge-icon {
-    background: rgba(212, 175, 55, 0.1);
-    color: var(--color-gold);
-    padding: 1rem;
-    border-radius: 50%;
-}
-
-.badge-text strong {
-    display: block;
-    color: var(--color-text);
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-.badge-text span {
-    color: #666;
-    font-size: 0.95rem;
-}
-
-.founder-frame {
-    position: absolute;
-    top: 15px;
+    top: 50%;
+    left: 0;
     right: 0;
-    bottom: 0;
-    left: 15px;
-    background: linear-gradient(135deg, var(--color-gold), var(--color-green));
-    border-radius: 36px;
-    z-index: -1;
-    transform: rotate(3deg);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(-50%);
+    height: 75%;
+    background-color: #163628;
+    /* Deep satisfying green to match template */
+    z-index: 1;
 }
 
-.founder-image-wrapper:hover .founder-frame {
-    transform: rotate(0deg) scale(1.02) translate(-5px, -5px);
-}
-
-.founder-image {
-    width: 100%;
-    border-radius: 30px;
+.founder-template-layout {
     position: relative;
     z-index: 2;
-    border: 8px solid var(--color-white);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* Put above the green band */
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.founder-image-side {
+    position: relative;
+    z-index: 5;
+}
+
+.founder-overlap-wrapper {
+    background: transparent;
+}
+
+.founder-overlap-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+    /* No border or simple thin border */
+}
+
+.founder-caption {
+    margin-top: 1.5rem;
+}
+
+.caption-role {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-gold);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.caption-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin: 0;
+}
+
+/* Right Side Text Block */
+.founder-content-side {
+    position: relative;
+    z-index: 5;
+}
+
+.template-heading {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #e5b08c;
+    /* Beige/Gold-ish hue as seen in the template title */
+    margin-bottom: 2rem;
+    line-height: 1.1;
+}
+
+.template-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    /* Slightly muted white for readability */
+    margin-bottom: 1.5rem;
+}
+
+.template-quote {
+    font-size: 1.3rem;
+    color: var(--color-white);
+    margin-top: 3rem;
+    font-style: italic;
+    border-left: 4px solid #e5b08c;
+    padding-left: 1.5rem;
+}
+
+.template-quote strong {
+    display: block;
+    margin-top: 0.5rem;
+    color: #e5b08c;
+    font-size: 1.4rem;
+    font-style: normal;
 }
 
 /* Responsive */
@@ -410,8 +423,18 @@
         padding: 3rem 2rem;
     }
 
-    .founder-card {
-        padding: 3rem 2rem;
+    .founder-template-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .founder-green-band {
+        height: 100%;
+        /* In mobile, expand the block fully to cover stacking items */
+    }
+
+    .template-heading {
+        font-size: 2.5rem;
     }
 }
 
