@@ -131,10 +131,9 @@ ul {
 
 /* Shiny Background Utility */
 .bg-shiny {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 30, 15, 0.85)), url('/images/shiny-bg.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 30, 15, 0.6)), url('/images/shiny-podium.png');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   color: var(--color-white);
 }
 
