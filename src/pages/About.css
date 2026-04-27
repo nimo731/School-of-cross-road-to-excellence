@@ -1,177 +1,364 @@
-/* About.css - Completely Overhauled */
-.about-section {
-    padding: 6rem 0;
-}
-
-.intro-text {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.lead-text {
-    font-size: 1.25rem;
-    color: var(--color-green);
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.intro-text p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+/* About.css - Premium SaaS Redesign */
+.about-page {
+    background-color: var(--color-background, #fafbfc);
     color: var(--color-text);
+    overflow-x: hidden;
 }
 
-.mission-section {
-    background-color: var(--color-white);
-}
-
-.mission-highlight {
-    font-size: 1.4rem !important;
-    color: var(--color-gold) !important;
-    margin-top: 3.5rem !important;
-    line-height: 1.5;
-}
-
-.vision-values {
-    padding: 6rem 0;
-}
-
-.vision-box,
-.values-box {
-    background: var(--color-white);
-    padding: 4rem 3rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border-top: 5px solid var(--color-gold);
-    position: relative;
-    transition: transform 0.4s ease;
-}
-
-.vision-box:hover,
-.values-box:hover {
-    transform: translateY(-8px);
-}
-
-.box-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-}
-
-.vision-box h3,
-.values-box h3 {
-    font-size: 2rem;
-    color: var(--color-green);
-    margin-bottom: 1.5rem;
-}
-
-.vision-box p {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: var(--color-text);
-}
-
-.values-list {
-    list-style: none;
-    padding: 0;
-}
-
-.values-list li {
-    margin-bottom: 1.2rem;
-    padding-left: 2.2rem;
-    position: relative;
-    line-height: 1.6;
-    font-size: 1.1rem;
-}
-
-.values-list li::before {
-    content: '✦';
-    color: var(--color-gold);
+/* Decorative Background Blobs */
+.blob-container {
     position: absolute;
+    top: 0;
     left: 0;
-    top: 2px;
-    font-size: 1.2rem;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
 }
 
-.founder-inspiration {
-    padding: 8rem 0;
-    background: var(--color-white);
-    overflow: hidden;
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    animation: float 12s infinite ease-in-out alternate;
+}
+
+.blob-green {
+    background: rgba(30, 90, 50, 0.4);
+    width: 600px;
+    height: 600px;
+    top: -100px;
+    left: -200px;
+}
+
+.blob-gold {
+    background: rgba(212, 175, 55, 0.3);
+    width: 500px;
+    height: 500px;
+    bottom: -100px;
+    right: -150px;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) scale(1);
+    }
+
+    100% {
+        transform: translateY(40px) scale(1.05);
+    }
+}
+
+/* Base section */
+.relative-section {
+    position: relative;
+    padding: 7rem 0;
+    z-index: 1;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    padding: 5rem 4rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.04);
+}
+
+/* Layouts */
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
 }
 
 .align-center {
     align-items: center;
 }
 
-.founder-text p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
+/* Typography & Hierarchy */
+.heading-gradient {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 1.8rem;
+    background: linear-gradient(135deg, var(--color-green) 0%, #178351 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lead-text {
+    font-size: 1.25rem;
     color: var(--color-text);
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.body-text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1.2rem;
+}
+
+/* Highlights */
+.mission-highlight {
+    background: rgba(212, 175, 55, 0.08);
+    /* soft gold tint */
+    padding: 2.5rem;
+    border-radius: 20px;
+    border-left: 4px solid var(--color-gold);
+    margin-top: 2.5rem;
+}
+
+.mission-highlight p {
+    font-size: 1.2rem;
+    color: var(--color-green);
+    font-style: italic;
+    margin: 0 0 0.5rem 0;
+}
+
+.mission-highlight strong {
+    display: block;
+    font-size: 1.6rem;
+    color: var(--color-text);
+    font-style: normal;
+}
+
+/* Vision & Values grid */
+.vision-values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+}
+
+.modern-card {
+    background: var(--color-white);
+    border-radius: 24px;
+    padding: 3.5rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.modern-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-green), var(--color-gold));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.modern-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+.modern-card:hover::before {
+    opacity: 1;
+}
+
+/* Icons */
+.icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: rgba(30, 90, 50, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: var(--color-green);
+    transition: all 0.4s ease;
+}
+
+.modern-card:hover .icon-wrapper {
+    background: var(--color-green);
+    color: var(--color-white);
+    transform: scale(1.05) rotate(5deg);
+}
+
+.modern-card h3 {
+    font-size: 2rem;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+/* Core Values List */
+.values-list {
+    list-style: none;
+    padding: 0;
+}
+
+.value-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.value-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.value-icon {
+    flex-shrink: 0;
+    margin-top: 4px;
+    color: var(--color-gold);
+}
+
+.value-content strong {
+    display: block;
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin-bottom: 0.4rem;
+}
+
+.value-content span {
+    color: #666;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Founder Inspiration */
+.founder-inspiration {
+    background: #fff;
+}
+
+.founder-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 36px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+    padding: 5rem;
+    border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .founder-quote {
-    font-size: 1.3rem !important;
-    color: var(--color-green) !important;
-    margin-top: 2.5rem;
+    font-size: 1.3rem;
+    color: var(--color-text);
+    margin-top: 3rem;
     font-style: italic;
     border-left: 5px solid var(--color-gold);
-    padding-left: 1.5rem;
-    font-weight: 500;
+    padding-left: 2rem;
+    line-height: 1.6;
+}
+
+.founder-quote strong {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--color-green);
+    font-size: 1.4rem;
+    font-style: normal;
 }
 
 .founder-image-wrapper {
     position: relative;
-    padding: 2rem 2rem 2rem 0;
-    z-index: 1;
+    padding: 1rem;
+}
+
+.founder-badge {
+    position: absolute;
+    bottom: 40px;
+    left: -30px;
+    background: var(--color-white);
+    padding: 1.25rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    z-index: 10;
+    animation: float 6s infinite ease-in-out alternate;
+}
+
+.badge-icon {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--color-gold);
+    padding: 1rem;
+    border-radius: 50%;
+}
+
+.badge-text strong {
+    display: block;
+    color: var(--color-text);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.badge-text span {
+    color: #666;
+    font-size: 0.95rem;
 }
 
 .founder-frame {
     position: absolute;
-    top: 20px;
+    top: 15px;
     right: 0;
-    width: calc(100% - 40px);
-    height: calc(100% - 40px);
-    border: 5px solid var(--color-gold);
-    border-radius: 20px;
+    bottom: 0;
+    left: 15px;
+    background: linear-gradient(135deg, var(--color-gold), var(--color-green));
+    border-radius: 36px;
     z-index: -1;
-    transition: transform 0.5s ease;
+    transform: rotate(3deg);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .founder-image-wrapper:hover .founder-frame {
-    transform: translate(-15px, 15px);
+    transform: rotate(0deg) scale(1.02) translate(-5px, -5px);
 }
 
 .founder-image {
     width: 100%;
+    border-radius: 30px;
     position: relative;
     z-index: 2;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    object-fit: cover;
-    max-height: 500px;
+    border: 8px solid var(--color-white);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-@media (max-width: 768px) {
-    .grid-2 {
+/* Responsive */
+@media (max-width: 992px) {
+    .split-layout {
         grid-template-columns: 1fr;
         gap: 4rem;
     }
 
-    .founder-image-wrapper {
+    .glass-panel {
+        padding: 3rem 2rem;
+    }
+
+    .founder-card {
+        padding: 3rem 2rem;
+    }
+
+    .vision-values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .founder-badge {
+        left: 0;
+        bottom: 20px;
         padding: 1rem;
-    }
-
-    .vision-box,
-    .values-box {
-        padding: 2.5rem 2rem;
-    }
-
-    .founder-frame {
-        width: 100%;
-        height: 100%;
-        top: 15px;
-        right: -15px;
     }
 }
