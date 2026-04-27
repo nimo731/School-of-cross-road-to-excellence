@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import './Contact.css';
 
 const Contact = () => {
+    const [phone, setPhone] = useState();
+
     return (
         <div className="contact-page">
             {/* Page Header */}
@@ -59,6 +63,16 @@ const Contact = () => {
                             <div className="form-group">
                                 <label>Email Address</label>
                                 <input type="email" placeholder="email@example.com" required />
+                            </div>
+                            <div className="form-group">
+                                <label>Phone Number</label>
+                                <PhoneInput
+                                    placeholder="Enter phone number"
+                                    value={phone}
+                                    onChange={setPhone}
+                                    defaultCountry="KE"
+                                    className="phone-input-contact"
+                                />
                             </div>
                             <div className="form-group">
                                 <label>Subject</label>

@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+import { allPrograms } from '../data/programsData';
 import './Register.css';
-
-const allProgramsList = {
-    'leadership': 'Confident Leadership (6 Weeks)',
-    'resume': 'Professional Resume, Cover Letter & Interview Mastery (2 Weeks)',
-    'ai': 'Senior AI Course (4-Week Advanced Program)',
-    'business': 'How to Start a Business (2 Weeks)',
-    'seniors': 'Boot Camp for Seniors (4 Weeks)'
-};
 
 const Register = () => {
     const location = useLocation();
@@ -22,20 +17,16 @@ const Register = () => {
     const [displayAmount, setDisplayAmount] = useState(amount || '');
     const [paymentMethod, setPaymentMethod] = useState('');
     const [optIn, setOptIn] = useState(false);
-
-    // If the user lands here directly, they can choose a program and we should ideally fetch the amount
-    // For simplicity, if they come from the card it's prefilled. Otherwise, they have to select from the site.
-    // If we want dynamic amounts here, we'd replicate the price table.
+    const [phone, setPhone] = useState();
 
     useEffect(() => {
-        // Just a simple fallback for amount if they switch programs manually on this page.
-        // In a real app, you'd lookup the price object.
-        if (!location.state || location.state.programId !== selectedProgram) {
-            setDisplayAmount('Select a program from the Programs page to see exact pricing.');
+        const program = allPrograms.find(p => p.id === selectedProgram);
+        if (program) {
+            setDisplayAmount(program.price[selectedRegion]);
         } else {
-            setDisplayAmount(location.state.amount);
+            setDisplayAmount('Select a program and region to see exact pricing.');
         }
-    }, [selectedProgram, location.state]);
+    }, [selectedProgram, selectedRegion]);
 
     return (
         <div className="register-page">
@@ -57,6 +48,17 @@ const Register = () => {
                         <div className="payment-module">
                             <h3 className="module-title">Selection Details</h3>
                             <div className="form-group full-width">
+                                <label>Region</label>
+                                <select
+                                    required
+                                    value={selectedRegion}
+                                    onChange={(e) => setSelectedRegion(e.target.value)}
+                                >
+                                    <option value="africa">Africa</option>
+                                    <option value="usa">America (USA)</option>
+                                </select>
+                            </div>
+                            <div className="form-group full-width">
                                 <label>Course</label>
                                 <select
                                     required
@@ -64,8 +66,8 @@ const Register = () => {
                                     onChange={(e) => setSelectedProgram(e.target.value)}
                                 >
                                     <option value="">-- Choose a Program --</option>
-                                    {Object.entries(allProgramsList).map(([id, title]) => (
-                                        <option key={id} value={id}>{title}</option>
+                                    {allPrograms.map((p) => (
+                                        <option key={p.id} value={p.id}>{p.title}</option>
                                     ))}
                                 </select>
                             </div>
@@ -120,7 +122,14 @@ const Register = () => {
                                 </div>
                                 <div className="form-group full-width">
                                     <label>Customer Phone *</label>
-                                    <input type="tel" placeholder="Enter phone number" required />
+                                    <PhoneInput
+                                        placeholder="Enter phone number"
+                                        value={phone}
+                                        onChange={setPhone}
+                                        defaultCountry="KE"
+                                        className="phone-input"
+                                        required
+                                    />
                                 </div>
                             </div>
                         </div>

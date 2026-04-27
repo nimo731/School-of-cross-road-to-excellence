@@ -1,82 +1,11 @@
 import React, { useState } from 'react';
 import ProgramCard from '../components/ProgramCard';
+import { allPrograms } from '../data/programsData';
 import './Programs.css';
 
 const Programs = () => {
     const [activeRegion, setActiveRegion] = useState('africa');
 
-    const allPrograms = [
-        {
-            id: 'leadership',
-            title: 'Confident Leadership',
-            duration: '6 Weeks',
-            price: {
-                africa: 'KSh 40,000 KES',
-                usa: '$397'
-            },
-            sessions: {
-                africa: ['Morning Session (9 AM - 12 PM)', 'Evening Session (6 PM - 9 PM)'],
-                usa: ['Morning Session (9 AM - 12 PM EST)', 'Evening Session (6 PM - 9 PM EST)']
-            },
-            description: 'Build the mindset, presence, and discipline of a strong leader. Focuses on self-awareness, communication, decision-making, and leading with confidence in real-life situations.'
-        },
-        {
-            id: 'resume',
-            title: 'Professional Resume, Cover Letter & Interview Mastery',
-            duration: '2 Weeks',
-            price: {
-                africa: 'KSh 20,000 KES',
-                usa: '$197'
-            },
-            sessions: {
-                africa: ['Morning Session (9 AM - 12 PM)', 'Evening Session (6 PM - 9 PM)'],
-                usa: ['Morning Session (9 AM - 12 PM EST)', 'Evening Session (6 PM - 9 PM EST)']
-            },
-            description: 'Learn how to present yourself professionally on paper and in person. Covers resume writing, persuasive cover letters, and interview techniques to stand out and secure opportunities.'
-        },
-        {
-            id: 'ai',
-            title: 'Senior AI Course',
-            duration: '4-Week Advanced Program',
-            price: {
-                africa: 'KSh 28,000 KES',
-                usa: '$225'
-            },
-            sessions: {
-                africa: ['Afternoon Session (2 PM - 5 PM)'],
-                usa: ['Afternoon Session (2 PM - 5 PM EST)']
-            },
-            description: 'Designed for experienced seniors ready to master advanced technology. It explores AI as a practical tool for everyday life, business, creativity, and communication.'
-        },
-        {
-            id: 'business',
-            title: 'How to Start a Business',
-            duration: '2 Weeks',
-            price: {
-                africa: 'KSh 30,000 KES',
-                usa: '$250'
-            },
-            sessions: {
-                africa: ['Evening Session (6 PM - 9 PM)'],
-                usa: ['Evening Session (6 PM - 9 PM EST)']
-            },
-            description: 'Foundational steps to legally and practically start a business. Covers business structure, registration, and basic operations to move from idea to action.'
-        },
-        {
-            id: 'seniors',
-            title: 'Boot Camp for Seniors',
-            duration: '4 Weeks',
-            price: {
-                africa: 'N/A',
-                usa: '$225'
-            },
-            sessions: {
-                africa: ['Morning Session (10 AM - 1 PM)'],
-                usa: ['Morning Session (10 AM - 1 PM EST)']
-            },
-            description: 'Bringing old stories to life through digital storytelling and AI, specifically for seniors aged 65+.'
-        }
-    ];
 
     return (
         <div className="programs-page">
