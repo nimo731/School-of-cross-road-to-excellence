@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Programs from './pages/Programs';
+import ProgramDetails from './pages/ProgramDetails';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
 
@@ -27,6 +28,7 @@ function AnimatedRoutes() {
                 <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
                 <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
                 <Route path="/programs" element={<PageWrapper><Programs /></PageWrapper>} />
+                <Route path="/program/:id" element={<PageWrapper><ProgramDetails /></PageWrapper>} />
                 <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
                 <Route path="/enroll" element={<PageWrapper><Register /></PageWrapper>} />
             </Routes>

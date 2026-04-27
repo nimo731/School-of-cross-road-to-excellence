@@ -1,44 +1,40 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './ProgramCard.css';
 
-const ProgramCard = ({ id, title, duration, price, description, sessions, activeRegion }) => {
-    const displayPrice = price[activeRegion];
-    const displaySessions = sessions[activeRegion];
+const ProgramCard = ({ id, title, duration, price, image, activeRegion = 'africa' }) => {
+    const navigate = useNavigate();
+    const displayPrice = price ? price[activeRegion] : 'Check Details';
 
     return (
-        <div className="program-card">
-            <div className="program-header">
-                <span className="program-duration">{duration}</span>
-                <h3 className="program-title">{title}</h3>
+        <div className="program-card clever-style">
+            <div className="card-image-wrapper" onClick={() => navigate(`/program/${id}`)}>
+                <img src={image || '/images/placeholder.svg'} alt={`${title} Flyer`} className="card-image" />
             </div>
-            <div className="program-body">
-                <p className="program-desc">{description}</p>
 
-                {displaySessions && (
-                    <div className="program-sessions">
-                        <h4 className="sessions-title">{activeRegion === 'africa' ? 'Africa' : 'USA'} Sessions:</h4>
-                        <ul>
-                            {displaySessions.map((s, i) => <li key={i}>{s}</li>)}
-                        </ul>
-                    </div>
-                )}
+            <div className="card-body">
+                <h3 className="card-title" onClick={() => navigate(`/program/${id}`)}>
+                    {title}
+                </h3>
 
-                <div className="program-pricing">
-                    <div className="price-item">
-                        <span className="price-label">Admission Fee</span>
-                        <span className="price-value">{displayPrice}</span>
-                    </div>
+                <div className="card-meta">
+                    <span className="card-duration">
+                        ⏱️ {duration}
+                    </span>
                 </div>
-            </div>
-            <div className="program-footer">
-                <Link
-                    to="/enroll"
-                    state={{ programId: id, programTitle: title, region: activeRegion, amount: displayPrice }}
-                    className="btn btn-primary btn-full text-center"
-                >
-                    Enroll Now
-                </Link>
+
+                <div className="card-footer">
+                    <span className="card-price">{displayPrice}</span>
+                    <button
+                        className="btn btn-apply"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            navigate('/enroll', { state: { programId: id, region: activeRegion, amount: displayPrice } });
+                        }}
+                    >
+                        Apply
+                    </button>
+                </div>
             </div>
         </div>
     );

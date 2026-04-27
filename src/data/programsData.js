@@ -2,6 +2,7 @@ export const allPrograms = [
     {
         id: 'leadership',
         title: 'Confident Leadership',
+        image: '/images/leadership-flyer.png',
         duration: '6 Weeks',
         price: {
             africa: 'KSh 40,000 KES',
@@ -16,6 +17,7 @@ export const allPrograms = [
     {
         id: 'resume',
         title: 'Professional Resume, Cover Letter & Interview Mastery',
+        image: '/images/resume-flyer.png',
         duration: '2 Weeks',
         price: {
             africa: 'KSh 20,000 KES',
@@ -30,6 +32,7 @@ export const allPrograms = [
     {
         id: 'ai',
         title: 'Senior AI Course',
+        image: '/images/ai-course-flyer.png',
         duration: '4-Week Advanced Program',
         price: {
             africa: 'KSh 28,000 KES',
@@ -44,6 +47,7 @@ export const allPrograms = [
     {
         id: 'business',
         title: 'How to Start a Business',
+        image: '/images/business-flyer.png',
         duration: '2 Weeks',
         price: {
             africa: 'KSh 30,000 KES',
