@@ -1,32 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProgramCard from '../components/ProgramCard';
+import { allPrograms } from '../data/programsData';
 import './Home.css';
 
 const Home = () => {
-    const featuredPrograms = [
-        {
-            title: 'Confident Leadership',
-            duration: '6 Weeks',
-            priceKES: 'KSh40,000',
-            priceUSD: '$397',
-            description: 'Build the mindset, presence, and discipline of a strong leader. Focuses on self-awareness, communication, and decision-making.'
-        },
-        {
-            title: 'Senior AI Course',
-            duration: '4-Week Advanced',
-            priceKES: 'KSh28,000',
-            priceUSD: '$225',
-            description: 'Master advanced technology. Explore AI as a practical tool for everyday life, business, and creativity.'
-        },
-        {
-            title: 'How to Start a Business',
-            duration: '2 Weeks',
-            priceKES: 'KSh30,000',
-            priceUSD: '$250',
-            description: 'Foundational steps to legally and practically start a business. Move from idea to action.'
-        }
-    ];
+    const featuredPrograms = allPrograms.slice(0, 3);
 
     return (
         <div className="home-page">
@@ -86,8 +65,8 @@ const Home = () => {
                         <Link to="/programs" className="view-all">View All Programs &rarr;</Link>
                     </div>
                     <div className="grid grid-3 cards-grid">
-                        {featuredPrograms.map((program, index) => (
-                            <ProgramCard key={index} {...program} />
+                        {featuredPrograms.map((program) => (
+                            <ProgramCard key={program.id} {...program} activeRegion="africa" />
                         ))}
                     </div>
                 </div>
@@ -98,7 +77,7 @@ const Home = () => {
                 <div className="container text-center">
                     <h2 className="cta-title">Ready to Transform Your Life?</h2>
                     <p className="cta-desc">Enroll in our upcoming cohort and start your journey towards excellence today.</p>
-                    <button className="btn btn-gold">Enroll Now</button>
+                    <Link to="/enroll" className="btn btn-gold">Enroll Now</Link>
                 </div>
             </section>
         </div>
