@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import PhoneInput from 'react-phone-number-input';
+import { CheckCircle2, AlertCircle } from 'lucide-react';
 import 'react-phone-number-input/style.css';
 import { allPrograms } from '../data/programsData';
 import './Register.css';
@@ -17,7 +18,8 @@ const Register = () => {
     const [displayAmount, setDisplayAmount] = useState(amount || '');
     const [paymentMethod, setPaymentMethod] = useState('');
     const [optIn, setOptIn] = useState(false);
-    const [phone, setPhone] = useState();
+    const [phone, setPhone] = useState("");
+    const [status, setStatus] = useState("");
 
     useEffect(() => {
         const program = allPrograms.find(p => p.id === selectedProgram);
@@ -27,6 +29,52 @@ const Register = () => {
             setDisplayAmount('Select a program and region to see exact pricing.');
         }
     }, [selectedProgram, selectedRegion]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus("loading");
+
+        const form = e.target;
+        const programRecord = allPrograms.find(p => p.id === selectedProgram);
+
+        const payload = {
+            _subject: `New Bootcamp Application: ${programRecord ? programRecord.title : selectedProgram}`,
+            FullName: form.fullName.value,
+            Email: form.email.value,
+            Phone: phone,
+            Region: selectedRegion,
+            CourseSelected: programRecord ? programRecord.title : selectedProgram,
+            PaymentMethod: paymentMethod,
+            OptInToMarketing: optIn ? 'Yes' : 'No'
+        };
+
+        try {
+            const res = await fetch("https://formsubmit.co/ajax/borntowrite02@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (res.ok) {
+                setStatus("success");
+                form.reset();
+                setPhone("");
+                setSelectedProgram("");
+                setPaymentMethod("");
+                setOptIn(false);
+                setTimeout(() => setStatus(""), 10000); // 10 seconds to read
+            } else {
+                setStatus("error");
+                setTimeout(() => setStatus(""), 8000);
+            }
+        } catch (error) {
+            setStatus("error");
+            setTimeout(() => setStatus(""), 8000);
+        }
+    };
 
     return (
         <div className="register-page">
@@ -42,7 +90,27 @@ const Register = () => {
                         <p>Start your journey towards excellence. Please fill in your details below.</p>
                     </div>
 
-                    <form className="enrollment-form">
+                    <form className="enrollment-form" onSubmit={handleSubmit}>
+
+                        {/* Alert Messages */}
+                        {status === 'success' && (
+                            <div style={{ color: '#155724', backgroundColor: '#d4edda', border: '1px solid #c3e6cb', padding: '15px', borderRadius: '8px', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1rem' }}>
+                                <CheckCircle2 color="#28a745" size={28} />
+                                <div>
+                                    <strong>Application Sent Successfully!</strong><br />
+                                    Your application has been delivered to Madam Wanjiru securely.
+                                </div>
+                            </div>
+                        )}
+                        {status === 'error' && (
+                            <div style={{ color: '#721c24', backgroundColor: '#f8d7da', border: '1px solid #f5c6cb', padding: '15px', borderRadius: '8px', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1rem' }}>
+                                <AlertCircle color="#dc3545" size={28} />
+                                <div>
+                                    <strong>Failed to send application.</strong><br />
+                                    Please verify your connection and try submitting again.
+                                </div>
+                            </div>
+                        )}
 
                         {/* Course Selection Module */}
                         <div className="payment-module">
@@ -114,11 +182,11 @@ const Register = () => {
                             <div className="form-grid">
                                 <div className="form-group full-width">
                                     <label>Customer Full Name *</label>
-                                    <input type="text" placeholder="Enter your full name" required />
+                                    <input type="text" name="fullName" placeholder="Enter your full name" required />
                                 </div>
                                 <div className="form-group full-width">
                                     <label>Customer Email *</label>
-                                    <input type="email" placeholder="Enter an email to receive a payment confirmation" required />
+                                    <input type="email" name="email" placeholder="Enter an email to receive a payment confirmation" required />
                                 </div>
                                 <div className="form-group full-width">
                                     <label>Customer Phone *</label>
@@ -156,8 +224,9 @@ const Register = () => {
                                 className="btn btn-primary btn-enroll"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
+                                disabled={status === 'loading'}
                             >
-                                Submit Application
+                                {status === 'loading' ? 'Submitting Application...' : 'Submit Application'}
                             </motion.button>
                         </div>
                     </form>
