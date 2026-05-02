@@ -79,10 +79,19 @@
 @media (max-width: 768px) {
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .footer-desc {
+        margin: 0 auto;
+    }
+
+    .footer-contact-items {
+        align-items: center;
     }
 
     .footer {
-        padding: 4rem 0 1rem;
+        padding: 4rem 0 2rem;
     }
 }

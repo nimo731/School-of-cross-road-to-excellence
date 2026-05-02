@@ -93,7 +93,7 @@ const Contact = () => {
                                 </span>
                                 <div>
                                     <h4>Phone Number</h4>
-                                    <a href="tel:0114915609" className="contact-link">0114915609</a>
+                                    <a href="tel:0728396061" className="contact-link">0728396061</a>
                                 </div>
                             </div>
                         </div>

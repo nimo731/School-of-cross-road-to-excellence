@@ -34,9 +34,9 @@ const Footer = () => {
                             <Mail size={18} />
                             borntowrite02@gmail.com
                         </a>
-                        <a href="tel:0114915609" className="footer-contact-link">
+                        <a href="tel:0728396061" className="footer-contact-link">
                             <Phone size={18} />
-                            0114915609
+                            0728396061
                         </a>
                     </div>
                 </div>
