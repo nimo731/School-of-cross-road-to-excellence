@@ -104,7 +104,7 @@ const Home = () => {
                 <div className="container text-center">
                     <h2 className="cta-title">Ready to Transform Your Life?</h2>
                     <p className="cta-desc">Enroll in our upcoming cohort and start your journey towards excellence today.</p>
-                    <Link to="/enroll" className="btn btn-gold">Enroll Now</Link>
+                    <Link to="/payment" className="btn btn-gold">Enroll Now</Link>
                 </div>
             </section>
         </div>

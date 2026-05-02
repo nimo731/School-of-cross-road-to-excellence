@@ -8,6 +8,7 @@ import Programs from './pages/Programs';
 import ProgramDetails from './pages/ProgramDetails';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
+import Payment from './pages/Payment';
 
 const PageWrapper = ({ children }) => (
     <motion.div
@@ -31,6 +32,7 @@ function AnimatedRoutes() {
                 <Route path="/program/:id" element={<PageWrapper><ProgramDetails /></PageWrapper>} />
                 <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
                 <Route path="/enroll" element={<PageWrapper><Register /></PageWrapper>} />
+                <Route path="/payment" element={<PageWrapper><Payment /></PageWrapper>} />
             </Routes>
         </AnimatePresence>
     );

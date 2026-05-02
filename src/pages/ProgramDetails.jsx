@@ -84,7 +84,7 @@ const ProgramDetails = () => {
                         <div className="info-actions">
                             <button
                                 className="btn btn-primary btn-full"
-                                onClick={() => navigate('/enroll', { state: { programId: program.id, region: activeRegion, amount: displayPrice } })}
+                                onClick={() => navigate('/payment')}
                             >
                                 Enroll Now
                             </button>
