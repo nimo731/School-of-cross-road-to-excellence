@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ProgramCard from '../components/ProgramCard';
 import { allPrograms } from '../data/programsData';
@@ -6,6 +6,19 @@ import './Home.css';
 
 const Home = () => {
     const featuredPrograms = allPrograms.slice(0, 3);
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const sliderImages = [
+        '/images/hero-slide-1.jpeg',
+        '/images/hero-slide-2.jpeg',
+        '/images/hero-slide-3.jpeg'
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
+        }, 10000);
+        return () => clearInterval(interval);
+    }, [sliderImages.length]);
 
     return (
         <div className="home-page">
@@ -24,8 +37,15 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="hero-image">
-                        {/* Design placeholder or generated image would go here */}
-                        <div className="hero-blob"></div>
+                        <div className="slider-container">
+                            {sliderImages.map((img, index) => (
+                                <div
+                                    key={index}
+                                    className={`slider-slide ${index === currentSlide ? 'active' : ''}`}
+                                    style={{ backgroundImage: `url(${img})` }}
+                                ></div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
