@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -9,6 +10,7 @@ import ProgramDetails from './pages/ProgramDetails';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
 import Payment from './pages/Payment';
+import PinLock from './components/PinLock';
 
 const PageWrapper = ({ children }) => (
     <motion.div
@@ -39,6 +41,18 @@ function AnimatedRoutes() {
 }
 
 function App() {
+    const [isUnlocked, setIsUnlocked] = useState(false);
+
+    useEffect(() => {
+        if (sessionStorage.getItem('ngoma_beats_unlocked') === 'true') {
+            setIsUnlocked(true);
+        }
+    }, []);
+
+    if (!isUnlocked) {
+        return <PinLock onUnlock={() => setIsUnlocked(true)} />;
+    }
+
     return (
         <Router>
             <div className="app-container">

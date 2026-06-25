@@ -1,0 +1,169 @@
+.pin-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #0e2a14 0%, #041008 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.8s ease;
+}
+
+.pin-overlay.unlocking {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pin-container {
+  max-width: 380px;
+  width: 90%;
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  position: relative;
+  overflow: hidden;
+}
+
+.pin-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(214, 175, 55, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.pin-logo {
+  margin-bottom: 1rem;
+}
+
+.pin-logo .logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -1px;
+}
+
+.pin-logo .accent-text {
+  color: var(--color-gold, #D4AF37);
+}
+
+.pin-instruction {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.5px;
+}
+
+.pin-dots {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.pin-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pin-dot.filled {
+  background: linear-gradient(135deg, var(--color-green, #2E7D32), var(--color-gold, #D4AF37));
+  border-color: transparent;
+  box-shadow: 0 0 15px rgba(214, 175, 55, 0.6);
+  transform: scale(1.25);
+}
+
+.pin-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  justify-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.pin-key {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  outline: none;
+}
+
+.pin-key:hover {
+  background: linear-gradient(135deg, var(--color-green, #2E7D32), var(--color-gold, #D4AF37));
+  color: #FFFFFF;
+  transform: scale(1.08);
+  border-color: transparent;
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+.pin-key:active {
+  transform: scale(0.92);
+}
+
+.pin-key.pin-action-key {
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.pin-key.pin-action-key:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.pin-message {
+  height: 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ff4d4d;
+  margin-top: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.pin-message.visible {
+  opacity: 1;
+}
+
+.pin-container.shake {
+  animation: pin-shake 0.4s ease-in-out;
+}
+
+@keyframes pin-shake {
+  0%, 100% { transform: translateX(0); }
+  15%, 45%, 75% { transform: translateX(-10px); }
+  30%, 60%, 90% { transform: translateX(10px); }
+}
